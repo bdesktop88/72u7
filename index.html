@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulk MX Verifier Tool</title>
+    <style>
+        body {
+            background-color: #111;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #e63946;
+            padding: 20px;
+            font-size: 2.5em;
+            margin-top: 30px;
+            border-bottom: 2px solid #e63946;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            margin: 40px auto;
+        }
+
+        label {
+            color: #e63946;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        input[type="file"] {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 2px solid #e63946;
+            border-radius: 5px;
+            background-color: #444;
+            color: white;
+        }
+
+        input[type="submit"] {
+            background-color: #e63946;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #d62828;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bulk MX Verifier Tool</h1>
+
+    <!-- File upload form -->
+    <form action="process_bulk_emails.php" method="post" enctype="multipart/form-data">
+        <label for="fileUpload">Upload Bulk Email File (CSV/TXT):</label>
+        <input type="file" name="fileUpload" id="fileUpload" required>
+        <input type="submit" value="Upload and Verify">
+    </form>
+</body>
+</html>
