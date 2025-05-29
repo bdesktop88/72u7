@@ -1,17 +1,20 @@
-# Use the official PHP image with Apache
 FROM php:8.2-apache
 
-# Install required PHP extensions (add more if needed)
-RUN docker-php-ext-install mysqli
+# Install system dependencies required by zip
+RUN apt-get update && apt-get install -y \
+    libzip-dev \
+    zip \
+    unzip \
+    && docker-php-ext-install zip mysqli
 
-# Enable Apache mod_rewrite (optional, but useful)
+# Enable Apache rewrite module (optional)
 RUN a2enmod rewrite
 
-# Copy your app files into the Apache root directory
+# Copy all files to web root
 COPY . /var/www/html/
 
-# Fix permissions
+# Set proper permissions
 RUN chown -R www-data:www-data /var/www/html
 
-# Expose default Apache port
+# Expose port 80
 EXPOSE 80
